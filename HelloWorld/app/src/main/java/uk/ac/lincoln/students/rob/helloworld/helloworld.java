@@ -41,7 +41,6 @@ public class helloworld extends Activity {
 
         //Start the testActivity
         startActivity(intent);
-
     }
 
 
@@ -59,4 +58,15 @@ public class helloworld extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void getTweetData(View view){
+        // Create to intent to start tweets activity
+        Intent intent = new Intent(this, Tweets.class);
+        startActivity(intent);
+    }
+
+
+
+
 }

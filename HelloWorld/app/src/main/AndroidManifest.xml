@@ -2,7 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uk.ac.lincoln.students.rob.helloworld" >
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -25,6 +31,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uk.ac.lincoln.students.rob.helloworld.helloworld" />
+        </activity>
+        <activity
+            android:name=".Tweets"
+            android:label="@string/title_activity_tweets" >
         </activity>
     </application>
 
