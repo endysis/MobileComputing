@@ -46,4 +46,14 @@
         android:layout_alignStart="@+id/button4"
         android:onClick="getTweetData" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top 40"
+        android:id="@+id/getTop40"
+        android:layout_below="@+id/button5"
+        android:layout_alignEnd="@+id/changeText"
+        android:layout_marginTop="48dp"
+        android:onClick="getMusicData" />
+
 </RelativeLayout>
