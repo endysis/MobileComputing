@@ -1,5 +1,7 @@
-package com.example.osheadouglas.workshop6;
+package com.example.osheadouglas.location;
 
+
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +9,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import android.util.Log;
+
 /**
  * Created by osheadouglas on 13/11/2016.
  */

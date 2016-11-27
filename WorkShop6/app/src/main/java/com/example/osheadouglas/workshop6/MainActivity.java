@@ -20,14 +20,8 @@ public class MainActivity extends AppCompatActivity {
     EditText editUserMood;
     EditText editRiffLocation;
     EditText editTextId;
-
-    Button btnAddData;
     Button btnViewAll;
-
-    Button btnUpdate;
-
     TextView testView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +35,23 @@ public class MainActivity extends AppCompatActivity {
         editRiffKey = (EditText)findViewById(R.id.keyText);
         editUserMood = (EditText)findViewById(R.id.moodText);
         editRiffLocation = (EditText)findViewById(R.id.locText);
+        editTextId = (EditText)findViewById(R.id.editID);
         btnViewAll = (Button)findViewById(R.id.viewBtn); // View button
         testView = (TextView) findViewById(R.id.textTest);
-        btnUpdate = (Button) findViewById(R.id.updateBtn); // Update Button
     }
 
-    public void updateData(View view){
+
+
+
+    public void updateBtn (View view){
         boolean isUpdate = myDb.updateData(editTextId.getText().toString(),editRiffName.getText().toString(),editUserMood.getText().toString(),editRiffLocation.getText().toString());
         if(isUpdate == true){
             Toast.makeText(MainActivity.this,"Data Updated",Toast.LENGTH_LONG).show();
         } else
             Toast.makeText(MainActivity.this,"Data not updated ",Toast.LENGTH_LONG).show();
     }
+
+
 
 
 
@@ -114,6 +113,27 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,Music.class);
         startActivity(intent);
     }
+
+
+
+
+
+
+
+
+    public void deleteBtn(View view){
+        Integer deleteRows = myDb.deleteData(editTextId.getText().toString());
+        if(deleteRows > 0){ // If rows have been deleted
+            Toast.makeText(MainActivity.this,"Data Deleted",Toast.LENGTH_LONG).show(); // Display Message
+        } else
+            Toast.makeText(MainActivity.this,"Data not Deleted",Toast.LENGTH_LONG).show();
+    }
+
+
+
+
+
+
 }
 
 

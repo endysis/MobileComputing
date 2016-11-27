@@ -1,19 +1,24 @@
-package com.example.osheadouglas.workshop6;
+package com.example.osheadouglas.app;
 
-
+import android.util.Base64;
+import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
-import android.util.Log;
+//import java.util.Base64.Encoder;
+
+
+
+
 /**
  * Created by osheadouglas on 13/11/2016.
  */
 
 public class httpConnect {
-
 
     // the below line is for making debugging easier
     final String TAG = "JsonParser.java";
@@ -21,10 +26,10 @@ public class httpConnect {
     // where the returned json data from service will be stored when downloaded
     static String json = "";
 
-
+    //String authorization;
 
     // your android activity will call this method and pass in the url of the REST service
-    public String getJSONFromUrl(String url) {
+    public String getJSONFromUrl(String url,String auth, boolean authCheck) {
 
         try {
             // this code block represents/configures a connection to your REST service
@@ -33,13 +38,21 @@ public class httpConnect {
 
             HttpURLConnection restConnection = (HttpURLConnection) u.openConnection(); // Gets from url
 
-
+            if(authCheck){ // If the connection requires a key
+                String authorization = auth;
+                String encode = Base64.encode(authorization.getBytes(),Base64.DEFAULT).toString();
+                String basicAuth = "Basic " + encode; // This may not work
+                restConnection.setRequestProperty("Ocp-Apim-Subscription-Key",authorization);
+                Log.i("KEY : ", basicAuth);
+            }
             restConnection.setRequestMethod("GET");
             restConnection.setRequestProperty("Content-length","0");
             restConnection.setUseCaches(false);
             restConnection.setAllowUserInteraction(false);
             restConnection.setConnectTimeout(10000);
             restConnection.setReadTimeout(10000);
+
+
             restConnection.connect();
 
             int status = restConnection.getResponseCode();
@@ -47,6 +60,7 @@ public class httpConnect {
             // switch statement to catch HTTP 200 and 201 errors
 
             switch(status) {
+                case 401: Log.i("KEY ACCESS :"," DENIED");
                 case 200:
                 case 201:
                     // live connection to your REST service is established here using getInputStream() method
@@ -66,13 +80,10 @@ public class httpConnect {
                         json = sb.toString();
                     } catch (Exception e) {
                         Log.e(TAG,"Error parsing data " + e.toString());
+
                     }
                     return json;
             }
-
-
-
-
 
         } catch (MalformedURLException ex) {
             Log.e(TAG,"Malformed URL");
@@ -82,6 +93,49 @@ public class httpConnect {
 
         return null;
     }
+
+
+
+/*
+    public String getJSONFromURI(){
+
+        HttpClient httpclient = HttpClients.createDefault();
+
+        try
+        {
+            URIBuilder builder = new URIBuilder("https://api.cognitive.microsoft.com/bing/v5.0/images/search");
+
+
+            URI uri = builder.build();
+            HttpPost request = new HttpPost(uri);
+            request.setHeader("Content-Type", "multipart/form-data");
+            request.setHeader("Ocp-Apim-Subscription-Key", "{subscription key}");
+
+
+            // Request body
+            StringEntity reqEntity = new StringEntity("{body}");
+            request.setEntity(reqEntity);
+
+            HttpResponse response = httpclient.execute(request);
+            HttpEntity entity = response.getEntity();
+
+            if (entity != null)
+            {
+                System.out.println(EntityUtils.toString(entity));
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+
+        return "s";
+    }
+*/
+
+
+
 
 
 

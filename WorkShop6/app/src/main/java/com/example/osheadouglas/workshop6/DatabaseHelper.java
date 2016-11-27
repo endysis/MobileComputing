@@ -70,17 +70,22 @@ public class DatabaseHelper extends SQLiteOpenHelper { // Inherrits from the SQL
     // Updating Data
     public boolean updateData(String id, String riffName, String riffMood,String riffLocation){
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_1,id);
+        ContentValues contentValues = new ContentValues(); // DB values
+        contentValues.put(COL_1,id); // Adds the values
         contentValues.put(COL_2,riffName);
         contentValues.put(COL_3,riffMood);
         contentValues.put(COL_4,riffLocation);
 
-        db.update(TABLE_NAME,contentValues,"id = ?",new String[] { id });
-        return true;
+        db.update(TABLE_NAME,contentValues,"id = ?",new String[] { id }); // Updates the table with the content values
+        return true; // If the data has updated
     }
 
 
+
+    public Integer deleteData (String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME,"ID = ?",new String[] {id}); // Return number of deleted data
+    }
 
 
 
