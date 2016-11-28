@@ -3,6 +3,8 @@
     package="com.example.osheadouglas.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -18,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".InspireActivity" />
-        <activity android:name=".InspireOptions"></activity>
+        <activity android:name=".InspireOptions" />
+        <activity android:name=".InspireDecide"></activity>
     </application>
 
 </manifest>

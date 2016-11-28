@@ -27,32 +27,39 @@
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text = "Happy" />
+                android:text = "Happy"
+                android:onClick="happyClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text = "Sad" />
+                android:text = "Sad"
+                android:onClick="sadClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text = "Calm" />
+                android:text = "Calm"
+                android:onClick="calmClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text = "Anxious" />
+                android:text = "Anxious"
+                android:onClick="anxClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text = "Optimistic" />
+                android:text = "Alert"
+                android:onClick="alertClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text = "Pessimistic" />
+                android:text = "Tired"
+                android:onClick="tiredClick"
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -85,33 +92,44 @@
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="UK" />
+                android:text="UK"
+                android:onClick="ukClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="USA" />
+                android:text="USA"
+                android:onClick="usaClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="South Africa" />
+                android:text="Spain"
+                android:onClick="spClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="France" />
+                android:text="France"
+                android:onClick="frClick" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Germany" />
+                android:text="Germany"
+                android:onClick="gerClick" />
 
         </LinearLayout>
 
     </HorizontalScrollView>
 
     </LinearLayout>
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/testbtn" />
 
 </LinearLayout>
 

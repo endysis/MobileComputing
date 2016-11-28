@@ -35,19 +35,22 @@ class AsyncTaskParseXml extends AsyncTask<String,String,ArrayList<String>> {
     String authKey;  // Auth key is passed to async task, and then past to the httpconnect method.
     boolean isAuth;
 
+    String xmlCatch;
+
 
     String mE; // Music List Element    Text or Picture
     ArrayList<String> mL; // Music LIst
 
 
     // Default contructor takes Callback Listener, takes the http Url , takes the URl specifier, Takes an auth key,
-    public AsyncTaskParseXml(AsyncTaskCompleteListenerXml<ArrayList<String>> cb, String xmlServiceI ,String xmlSpecifierI,String authKeyI, boolean isAuthI){ // I == Input
+    public AsyncTaskParseXml(AsyncTaskCompleteListenerXml<ArrayList<String>> cb, String xmlServiceI ,String xmlSpecifierI,String authKeyI, boolean isAuthI,String xmlCatchI){ // I == Input
         super();
 
         xmlService = xmlServiceI;
         xmlSpecifier = xmlSpecifierI;
         authKey = authKeyI;
         isAuth = isAuthI;
+        xmlCatch = xmlCatchI;
 
         this.callBack = cb;
     }
@@ -102,7 +105,7 @@ class AsyncTaskParseXml extends AsyncTask<String,String,ArrayList<String>> {
 
                     case XmlPullParser.END_TAG: // We are at the end of a given tag
 
-                        if(name.equals("name")) {
+                        if(name.equals(xmlCatch)) {  // was name
                             mE = text;
                             mL.add(mE); // Add it to the list
                             break;

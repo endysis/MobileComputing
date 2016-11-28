@@ -61,7 +61,6 @@ public class AsyncTaskParseJson extends AsyncTask<String, String, ArrayList<Stri
                 // get json string from service url
                 String valuePass = URLEncoder.encode(musicNameList.get(i),"UTF-8");
                 String json = jParser.getJSONFromUrl(jsonService+valuePass+jsonParameters, auth, isAuth);    // Loops through the musicNameList and queries each music list string
-
                 JSONObject root = new JSONObject(json);
                 JSONArray valueArray = root.getJSONArray("value");
                 JSONObject imageResult = valueArray.getJSONObject(0);

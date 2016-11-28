@@ -86,12 +86,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 
 
-    protected void onStop() {
-        super.onStop();
-        if (mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
-        }
-    }
+
 
     /*   Im guessing the method is alread being handled in the super class
     protected void onPause() {
@@ -137,6 +132,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
 
+
+
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -144,6 +141,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 .addApi(LocationServices.API)
                 .build();
     }
+
+
+
+
+
 
     protected void createLocationRequest() {
         mLocationRequest = new LocationRequest();
@@ -219,6 +221,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         displayLocation(btnShowLoc);
     }
+
 
 
     public void showDetails(View view){

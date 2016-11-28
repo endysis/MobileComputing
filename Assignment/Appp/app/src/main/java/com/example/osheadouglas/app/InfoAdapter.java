@@ -1,6 +1,8 @@
 package com.example.osheadouglas.app;
 
+import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,8 +23,10 @@ import java.util.List;
 public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> {
 
 
+
     private Context context;
     private List<MusicInformation> data;
+
 
 
     public InfoAdapter(Context c,List<MusicInformation> i) {
@@ -41,11 +45,14 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> 
 
 
 
+    // Now we nee dto launch an activity by selecting a card
+    // and Launch
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
        holder.description.setText(data.get(position).getMusicDescription());  //  would be holder.description.setText(data.get(position).get description); if inside a class
         Picasso.with(context).load(data.get(position).getImageUrl()).into(holder.imageView); // Using the picasso api it binds the image
+
 
      //  holder.imageView.setImageBitmap(data.get(position).getImage());
     }
@@ -57,9 +64,9 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> 
     }
 
 
-
     class MyViewHolder extends RecyclerView.ViewHolder{ // Because RecyclerView.ViewHolder is abstarct and contains no implementation we need to do our own
 
+        public View view;
         public TextView description;
         public ImageView imageView;
 
@@ -67,7 +74,11 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> 
             super(itemView);
             description = (TextView) itemView.findViewById(R.id.description);
             imageView = (ImageView) itemView.findViewById(R.id.cardImage);
-            // Need another one for the image
+            view = itemView;
+
+
         }
+
+
     }
 }

@@ -1,6 +1,7 @@
 package com.example.osheadouglas.app;
 
 import android.content.Intent;
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,11 @@ import com.squareup.picasso.Picasso;
 public class MainActivity extends AppCompatActivity {
 
     // https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&q=sailing+dinghies&id=343498995D41C02DDC1E7DF0B7196F7A86E34593&simid=608048528616131155
+
+
+
+
+
 
 
     @Override
