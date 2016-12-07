@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         myDb = new DatabaseHelper(this); // This is context in the database helper class
 
+
         // Linking with views in XML
         editRiffName = (EditText)findViewById(R.id.nameText);
         editRiffKey = (EditText)findViewById(R.id.keyText);
@@ -113,10 +114,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,Music.class);
         startActivity(intent);
     }
-
-
-
-
 
 
 

@@ -26,20 +26,17 @@ public class DatabaseHelper extends SQLiteOpenHelper { // Inherrits from the SQL
         super(context,DATABASE_NAME,null,1); // Calls the constructor of the parent class
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Creates a table
         db.execSQL("create table " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,MOOD TEXT,LOCATION TEXT)");
     }
 
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { // Only called if database file exists but the stored version number is lower than requested in constructor.
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME); // I suppose it dosent enable a copy of a given table.
         onCreate(db);
     }
-
 
     public boolean insertData(String riffName, String userMood, String riffLoc){
         SQLiteDatabase db = this.getWritableDatabase(); // Creates the database and table
@@ -56,15 +53,11 @@ public class DatabaseHelper extends SQLiteOpenHelper { // Inherrits from the SQL
         }
     }
 
-
     public Cursor getAllData(){ // Cursor provides a random read-write access to the result set
         SQLiteDatabase db = this.getWritableDatabase(); // Creates the database and table
         Cursor result = db.rawQuery("select * from " + TABLE_NAME,null);
         return result;
     }
-
-
-
 
 
     // Updating Data
