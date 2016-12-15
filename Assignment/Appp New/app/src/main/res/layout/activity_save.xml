@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/button4"
+            android:visibility="visible"
+            android:onClick="photoClick"
+            android:background="@null"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/saveImage" />
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/riffNameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Riff Name"
+        android:inputType="text"
+        android:textColor="#000"
+        android:background="#f0f0f4"
+        android:padding="12dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:drawablePadding="16dp"
+        />
+
+    <EditText
+        android:id="@+id/riffMoodEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textColor="#000"
+        android:background="#f0f0f4"
+        android:padding="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:drawablePadding="16dp"
+        android:hint="Mood/Inspiration"
+        android:fontFamily="sans-serif" />
+
+    <EditText
+        android:id="@+id/riffDesEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Riff Description"
+        android:background="#f0f0f4"
+        android:textColor="#000"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="12dp"
+        android:drawablePadding="16dp"
+        android:fontFamily="sans-serif"
+        android:inputType="text" />
+
+    <Button
+        android:text="SAVE RIFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveBtn"
+        android:onClick="saveBtn"
+        android:background="@drawable/rounded"
+        style="@style/Widget.AppCompat.ActionButton.Overflow"
+        android:textColor="@color/edit_profile"
+        />
+
+</LinearLayout>
