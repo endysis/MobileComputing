@@ -39,15 +39,12 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> 
     private boolean moodBand;
     private String location;
 
-
-
     public InfoAdapter(Context c,List<MusicInformation> i, boolean mB,String loc) {
         this.context = c;
         this.data = i;
         this.moodBand = mB;
         this.location = loc;
     }
-
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) { // RecyclerView.ViewHolder represent text and metadata
@@ -56,8 +53,6 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> 
 
         return new MyViewHolder(itemView);
     }
-
-
 
     // Now we nee dto launch an activity by selecting a card
     // and Launch
@@ -87,6 +82,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> 
         private String inspireText;
         private String imageUrl;
 
+
         public MyViewHolder(View itemView) {
             super(itemView);
             description = (TextView) itemView.findViewById(R.id.description);
@@ -98,19 +94,14 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> 
 
             cButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    if(moodBand == true){
-                        inspireText = "Written in a " + description.getText().toString() + " mood";
-                    } else {
-                        inspireText = "Inspired by " + description.getText().toString();
-                    }
-
-                    location = "Recorded in " + location;
-
+                    inspireText = description.getText().toString();
+                    location = "Recorded in " + location; // Add the location part
                     imageUrl = urlText.getText().toString();
                     Intent i = new Intent(v.getContext(),InspireDecide.class);
                     i.putExtra("inspText",inspireText);
                     i.putExtra("image",imageUrl);
                     i.putExtra("location",location);
+                    i.putExtra("iM",moodBand);
                     context.startActivity(i);
                     //Log.i("TAG","d + "+ description.getText());
                 }

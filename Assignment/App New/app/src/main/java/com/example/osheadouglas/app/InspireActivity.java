@@ -12,8 +12,6 @@ import java.util.ArrayList;
 public class InspireActivity extends AppCompatActivity implements AsyncTaskCompleteListenerXml<ArrayList<String>>,AsyncTaskCompleteListenerJson<ArrayList<String>> {
 
     // We need to work out how to get image data in same async task
-
-
     String locationUrl = "http://musicovery.com/api/V2/artist.php?fct=getfromlocation&resultsnumber=1&location=";
     String moodUrl = "http://musicovery.com/api/V2/playlist.php?&fct=getfrommood&resultsnumber=1"; // &trackvalence=900000&trackarousal=100000
     String urlChoice;
@@ -29,7 +27,6 @@ public class InspireActivity extends AppCompatActivity implements AsyncTaskCompl
     InfoAdapter adapter; // USed to bind data from the webserver into the recyler view
     int callbackCounter;
     private String location = "";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,24 +60,20 @@ public class InspireActivity extends AppCompatActivity implements AsyncTaskCompl
         rV.setLayoutManager(gridLayoutManager);
     }
 
-
-
     @Override
     public void onTaskCompleteXml(ArrayList<String> result) {
         //Toast.makeText(getApplicationContext(),result.get(0).getMusicDescription(),Toast.LENGTH_LONG).show();
         musicList = result;
         //Log.i("Called : ", Integer.toString(i));
         // If title add song on the end so it can find song covers. Becuase the title xml tag is the song name tag
-        if(catchItem.equals("title")){
+        /* if(catchItem.equals("title")){
             for(int i = 0; i < musicList.size(); i++){
                 musicList.set(i,musicList.get(i)+" song");
             }
-        }
-
+        }*/
         AsyncTaskParseJson b = new AsyncTaskParseJson(this,musicList,true);
         b.execute();
     }
-
 
     @Override
     public void onTaskCompleteJson(ArrayList<String> result) {
@@ -93,7 +86,6 @@ public class InspireActivity extends AppCompatActivity implements AsyncTaskCompl
         rV.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
-
 
     public ArrayList<MusicInformation> arrayBinder(ArrayList<String> arr1, ArrayList<String> arr2){ // Add ,
         ArrayList<MusicInformation> binded = new ArrayList<>();

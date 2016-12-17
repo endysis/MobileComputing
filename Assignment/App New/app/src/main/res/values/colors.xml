@@ -6,5 +6,5 @@
 
     <color name="title_color">#000</color>
     <color name="edit_profile">#5F76BF</color>
-    <color name="bottom_black_bgcolor">#5c000000</color>
+    <color name="bottom_black_bgcolor">#60000000</color>
 </resources>

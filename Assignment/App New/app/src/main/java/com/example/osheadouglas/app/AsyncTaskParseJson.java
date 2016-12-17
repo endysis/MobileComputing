@@ -31,7 +31,6 @@ public class AsyncTaskParseJson extends AsyncTask<String, String, ArrayList<Stri
     private ArrayList<String> musicNameList;
     private ArrayList<String> imageUrlList;
 
-
     boolean isAuth;
 
     public AsyncTaskParseJson(AsyncTaskCompleteListenerJson<ArrayList<String>> cb, ArrayList<String> musicNameListI, boolean isAuthI){ // I == Input

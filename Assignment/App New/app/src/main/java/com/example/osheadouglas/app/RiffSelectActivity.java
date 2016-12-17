@@ -32,10 +32,6 @@ public class RiffSelectActivity extends AppCompatActivity {
     private String riffPhoPath;
     private String riffLoc;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +46,8 @@ public class RiffSelectActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
                 Cursor result = myDb.getAllData();
-
                 String friend = (String) adapterView.getItemAtPosition(i);
                //Toast.makeText(view.getContext(), "The List title is " + friend,Toast.LENGTH_LONG).show();
-
                 while(result.moveToNext()){
                     if(result.getString(1).equals(friend)){
                         riffID = result.getString(0);
