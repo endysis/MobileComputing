@@ -1,2 +1,0 @@
-https://github.com/nok/soundcloud-java-library
-https://github.com/soundcloud/java-api-wrapper
